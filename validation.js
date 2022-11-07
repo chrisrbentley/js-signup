@@ -31,7 +31,7 @@ const error = document.querySelector('.error');
 
 (function checkZip() {
   zip.addEventListener('focusout', () => {
-    if (zip.validity.patternMismatch) {
+    if (zip.validity.patternMismatch || zip.validity.tooShort) {
       zip.setCustomValidity('Enter your 5 digit zip code.');
       zip.reportValidity();
     } else {
