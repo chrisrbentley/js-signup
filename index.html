@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <form action="/" method="post" novalidate>
+        <label for="mail">* Email:</label>
+        <input type="email" name="mail" id="mail" required />
+        <label for="country">* Country:</label>
+        <input type="text" name="country" id="country" minlength="3" required />
+        <label for="zip">* Zip Code:</label>
+        <input
+          type="text"
+          name="zip"
+          id="zip"
+          pattern="[0-9]{5}"
+          minlength="5"
+          maxlength="5"
+          required
+        />
+        <label for="password">* Password:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          minlength="8"
+          maxlength="20"
+          required
+        />
+        <label for="confirm-pw">* Confirm Password:</label>
+        <input
+          type="password"
+          name="confirm-pw"
+          id="confirm-pw"
+          minlength="8"
+          maxlength="20"
+          required
+        />
+        <button type="submit">Submit</button>
+      </form>
+      <div class="error"></div>
+    </div>
+    <script src="validation.js"></script>
+  </body>
+</html>
