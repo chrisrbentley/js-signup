@@ -7,7 +7,7 @@ const passwordConfirm = document.getElementById('confirm-pw');
 const error = document.querySelector('.error');
 
 (function checkEmail() {
-  mail.addEventListener('input', (e) => {
+  mail.addEventListener('focusout', (e) => {
     if (mail.validity.typeMismatch) {
       mail.setCustomValidity('Enter an email address.');
       mail.reportValidity();
@@ -18,7 +18,7 @@ const error = document.querySelector('.error');
 })();
 
 (function checkCountry() {
-  country.addEventListener('input', (e) => {
+  country.addEventListener('focusout', (e) => {
     if (country.validity.tooShort) {
       country.setCustomValidity('Please enter at least 3 characters.');
       country.reportValidity();
@@ -30,7 +30,7 @@ const error = document.querySelector('.error');
 })();
 
 (function checkZip() {
-  zip.addEventListener('input', () => {
+  zip.addEventListener('focusout', () => {
     if (zip.validity.patternMismatch) {
       zip.setCustomValidity('Enter your 5 digit zip code.');
       zip.reportValidity();
@@ -41,7 +41,7 @@ const error = document.querySelector('.error');
 })();
 
 (function checkPassword() {
-  password.addEventListener('input', (e) => {
+  password.addEventListener('focusout', (e) => {
     if (password.validity.tooShort) {
       password.setCustomValidity(
         'Your password must be between 8 and 20 characters.',
@@ -51,7 +51,7 @@ const error = document.querySelector('.error');
       password.setCustomValidity('');
     }
   });
-  passwordConfirm.addEventListener('input', (e) => {
+  passwordConfirm.addEventListener('focusout', (e) => {
     if (passwordConfirm.value != password.value) {
       passwordConfirm.setCustomValidity('Your passwords do not match.');
       passwordConfirm.reportValidity();
@@ -77,3 +77,5 @@ form.addEventListener('submit', (e) => {
 function showError() {
   error.textContent = 'Please fill out the required* fields correctly.';
 }
+
+// focus event
